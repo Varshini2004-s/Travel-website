@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <style>
+        /* Reset some basic elements */
+        body, h1, h3, ul, li, a, button, input, textarea {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        /* Basic body styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            margin: 0;
+            background-color: white;
+        }
+
+        /* Navigation bar styling */
+        nav {
+            width: 100%;
+            background-color: #0b737a;
+            color: rgb(17, 215, 230);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        nav .logo a {
+            color: rgb(37, 183, 219);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: white;
+            border-radius: 4px;
+        }
+
+        /* Hamburger menu for smaller screens */
+        .menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-line {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px;
+        }
+
+        .showmenu {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Main content styling */
+        .main {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .main .content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .main .content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .main .content button {
+            background-color: #09e22e;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .main .content button:hover {
+            background-color: #2bf019;
+        }
+
+        /* Section styling */
+        section {
+            padding: 2rem;
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(16, 155, 236, 0.1);
+            display: none; /* Initially hide all sections */
+        }
+
+        h2 {
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .search-bar {
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px 0 0 4px;
+            width: 300px;
+        }
+
+        .search-bar button {
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: none;
+            background-color:white;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        .contact-form button {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: none;
+            background-color: #12d33c;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-media a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-media a:hover {
+            color: #555;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+            }
+
+            .menu {
+                display: flex;
+            }
+
+            .showmenu {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+           <a href="Discover Destinations" onclick="showSection('home')"></a>
+        </div>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('about')">About</a></li>
+            <li><a href="#" onclick="showSection('services')">Services</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+        </ul>
+        <div class="menu">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+    </nav>
+    <div class="main" id="home">
+        <div class="content">
+            <h1>Discover Destinations</h1>
+            <h3>Travel beyond the world </h3>
+            <img src="https://i.pinimg.com/736x/1d/c8/ea/1dc8ea1af2f0da25492d64f5d402fdef.jpg" width="680">
+        </div>
+    </div>
+    <section id="services">
+        <h2>Our Services</h2>
+        <p>We will provide you the various exciting and amazing destination guides which will help you to schedule your events</p>
+        <button onclick="showSection('destination')">Destination Guides</button>
+        <p>Our expertly crafted travel itineraries are designed to make every moment of your journey unforgettable. Explore new destinations with ease and immerse yourself in the local culture and attractions</p>
+        <button onclick="showSection('itinerary')">Travel Itineraries</button>
+        <p>From flights and accommodations to car rentals and activities, we offer comprehensive booking services to make your travel planning as simple and enjoyable as possible</p>
+        <button onclick="showSection('booking')">Booking Options</button>
+        <p>Explore reviews of various destinations, from bustling cities to serene beaches. See what travelers had to say about the local attractions, dining, and overall experience</p>
+        <button onclick="showSection('reviews')">User Reviews</button>
+    </section>
+    <section id="destination">
+        <h2>Destination Guides</h2>
+        <em>Discover the best destinations around the world with our comprehensive guides.</em>
+        <img src="https://tracystravelsintime.com/wp-content/uploads/2020/10/Copy-of-Destination-Guides.jpg.webp" width="700">
+    </section>
+    <section id="itinerary">
+        <h2>Travel Itineraries</h2>
+        <p>Plan your trips with our detailed travel itineraries tailored to your interests.</p>
+        <h2>Select the places</h2>
+        <button>Asia</button> <br/>
+        <br/>
+        <button>America</button> <br/>
+        <br/>
+        <button>Africa</button><br/>
+        <br/>
+        <button>South America</button><br/>
+        <br/>
+        <button>Europe</button>
+    </section>
+    <section id="booking">
+        <h2>Booking Options</h2>
+        <p>Book your flights, hotels, and activities all in one place for a seamless experience.</p>
+        <img src="https://img.freepik.com/premium-photo/minsk-belarus-august-2017-columns-guestroom-hall-reception-modern-luxury-hotel_97694-6572.jpg" width="400">
+        <img src="https://media.istockphoto.com/id/155150766/photo/passenger-jet-airplane-flying-above-clouds.jpg?s=612x612&w=0&k=20&c=DjBqo2rZeQvU-NkC1xRdznpXgcAljXEll3T7SdUFINE=" width="390">
+        <img src="https://content.jdmagicbox.com/comp/chennai/b2/044pxx44.xx44.121019152003.k3b2/catalogue/ntl-call-taxi-pvt-ltd-alandur-st-thomas-mount-chennai-call-taxi-services-45jz1qw.jpg" width="380">
+        <br/>
+        <h3>Book your tickets here</h3>
+        <br/>
+        <button>Book now</button>
+    </section>
+    <section id="reviews">
+        <h2>User Reviews</h2>
+        <p>Read reviews from other travelers and share your own experiences.</p>
+        <h4>Share your thoughts</h4>
+        <textarea placeholder="Message" required></textarea>
+        <br/>
+            <button type="submit">Send Message</button>
+
+    </section>
+    <section class="search-bar" id="search-bar">
+        <input type="text" placeholder="Search...">
+        <button>Search</button>
+    </section>
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <section id="about">
+    <div class="social-media">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJteCI6IjIifQ%3D%3D%22%7D"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/accounts/login/?hl=en"><i class="fab fa-instagram"></i></a>
+    </div>
+    </section>
+    <script>
+        const menu = document.querySelector('.menu');
+        const menuList = document.querySelector('nav ul');
+        menu.addEventListener('click', () => {
+            menuList.classList.toggle('showmenu');
+        });
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section, .main');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const sectionToShow = document.getElementById(sectionId);
+            if (sectionToShow) {
+                sectionToShow.style.display = 'block';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
